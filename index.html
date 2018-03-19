@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="info-wrapper">
+            <div class="info-cloud">Level: <span id="level">1</span></div>
+            <div class="info-message">
+                <span id="message">Apasa "Start" pentru a incepe.</span>
+            </div>
+            <div class="info-cloud">Score: <span id="score">0</span></div>
+        </div>
+        <div class="board-cannon-wrapper">
+            <div class="board-wrapper">
+                <div class="circle-target">
+                    <div id="circle-aim"></div>
+                    <div id="arrow"></div>
+                    <div id="circle-a"></div>
+                    <div id="circle-b"></div>
+                </div>
+            </div>
+
+            <div class="cannon-wrapper">
+                <div id="ammo"></div>
+                <img class="cannon-img" src="cannon.png" alt="cannon" />
+            </div>
+        </div>
+        <div class="action-menu">
+                <button class="action-button" onclick="startMovingAim()">
+                    Start
+                </button>
+                <button class="action-button" onclick="stopMovingAim()">
+                    Stop
+                </button>
+                <button class="action-button" onclick="shoot()">
+                    Shoot
+                </button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
