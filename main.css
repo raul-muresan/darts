@@ -1,6 +1,6 @@
 .wrapper {
     display: flex;
-    height: 100vh;
+    min-height: 1000px;
     width: 100vw;
     align-items: center;
     flex-direction: column;
@@ -99,12 +99,12 @@
 .cannon-img {
     width: 85%;
     transform: rotateZ(-10deg);
-    margin-left: -60%;
+    margin-left: -53%;
     position: absolute;
 }
 
 .info-wrapper {
-    padding: 20px;
+    padding: 10px 0;
     align-self: start;
     display: flex;
     width: 100%;
@@ -143,8 +143,55 @@
     margin-left: -15%;
     margin-top: 3%;
     transition: all 1.5s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .board-cannon-wrapper {
     position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        min-height: 650px;
+    }
+
+    .info-wrapper {
+        flex-direction: column;
+    }
+
+    #circle-a {
+        display: none;
+    }
+
+    #circle-b {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 70%;
+    }
+
+    .circle-target {
+        height: 300px;
+        width: 300px;
+        border: none;
+    }
+
+    .cannon-img {
+        display: none;
+    }
+
+    .action-button {
+        margin-right: 0;
+    }
+
+    .action-menu {
+        justify-content: space-around;
+    }
+
+    #ammo {
+        margin-left: -70%;
+        margin-top: 0;
+    }
 }

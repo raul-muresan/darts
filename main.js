@@ -8,6 +8,7 @@ var message = document.getElementById('message');
 var openMouth = false;
 var interval;
 var intervalTime = 1000;
+var mq = window.matchMedia("(max-width: 600px)");
 
 var messageTextStart = 'Apasa "Start" pentru a incepe.';
 var messageTextToDO = 'Trage-i la Dragnea sub mustata!';
@@ -57,8 +58,17 @@ function getMargin(el) {
 }
 
 function moveRandomAim() {
-    var x = getRandomInt(501);
-    var y = getRandomInt(501);
+    var x, y;
+    if (mq.matches) {
+        x = getRandomInt(301);
+        y = getRandomInt(301);
+        console.log('A');
+    } else {
+        x = getRandomInt(501);
+        y = getRandomInt(501);
+        console.log('B');
+    };
+
 
     aim.style.marginLeft = `${x}px`;
     aim.style.marginTop = `${y}px`;
@@ -116,16 +126,29 @@ function updateLevel() {
 }
 
 function ammoOut() {
-    ammo.style.marginLeft = '30%';
-    ammo.style.marginTop = '-44%';
-    ammo.style.transform = 'scale(0.4) rotate(-40deg)';
-    arrow.style.display = 'none';
+    if (mq.matches) {
+        ammo.style.marginLeft = '20%';
+        ammo.style.marginTop = '-36.5%';
+        ammo.style.transform = 'scale(0.4) rotate(-40deg)';
+        arrow.style.display = 'none';
+    } else {
+        ammo.style.marginLeft = '30%';
+        ammo.style.marginTop = '-44%';
+        ammo.style.transform = 'scale(0.4) rotate(-40deg)';
+        arrow.style.display = 'none';
+    };
 }
 
 function ammoIn() {
-    ammo.style.marginLeft = '-15%';
-    ammo.style.marginTop = '3%';
-    ammo.style.transform = 'scale(1) rotate(-40deg)';
+    if (mq.matches) {
+        ammo.style.marginLeft = '-70%';
+        ammo.style.marginTop = '0';
+        ammo.style.transform = 'scale(1) rotate(-40deg)';
+    } else {
+        ammo.style.marginLeft = '-15%';
+        ammo.style.marginTop = '3%';
+        ammo.style.transform = 'scale(1) rotate(-40deg)';
+    };
 }
 
 function shoot() {
@@ -138,8 +161,13 @@ function shoot() {
 
     stopMovingAim();
 
-    openMouth = (arrowLeft >= 200 && arrowLeft <= 300) &&
+    if (mq.matches) {
+        openMouth = (arrowLeft >= 130 && arrowLeft <= 200) &&
+                    (arrowTop >= 180 && arrowTop <= 200);
+    } else {
+        openMouth = (arrowLeft >= 200 && arrowLeft <= 300) &&
                     (arrowTop >= 250 && arrowTop <= 300);
+    };
 
     if (openMouth) {
         stupidFace.style.backgroundImage = "url('dragneaB.png')";
