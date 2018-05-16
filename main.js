@@ -14,7 +14,7 @@ var messageTextStart = 'Apasa "Start" pentru a incepe.';
 var messageTextToDO = 'Trage-i la Dragnea sub mustata!';
 var messageTextSuccess = 'Bravo! I-ai tras-o la Dragnea sub mustata.';
 var messageTextFail = 'Mai incearca pana-i tragi sub mustata.';
-//
+
 var score = 0;
 var level = 1;
 
@@ -195,5 +195,3 @@ function shoot() {
     updateScore();
     updateLevel();
 };
-
-
